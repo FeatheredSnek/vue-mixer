@@ -1,0 +1,10 @@
+@import '@/styles/variables';
+
+@mixin shadowed($radius) {
+  box-shadow: 0 0 $radius $shadow-light;
+  border: 1px solid $border;
+}
+
+@mixin filter-shadowed($radius) {
+  filter: drop-shadow(0 0 $radius $shadow-light);
+}

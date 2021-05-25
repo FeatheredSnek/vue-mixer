@@ -1,0 +1,172 @@
+// imports
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+// fonts
+$font-stack: 'Josefin Sans', sans-serif;
+
+// element prototypes
+%box {
+  @include shadowed(24px);
+  box-sizing: border-box;
+  border-radius: $corners;
+  background-color: $primary-light;
+  margin: auto;
+  width: 100%;
+}
+
+// global css
+
+html {
+  margin: 0;
+  font-size: 20px;
+  font-family: $font-stack;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0;
+  font-family: $font-stack;
+  font-weight: normal;
+  font-size: 1rem;
+  color: $text-dark;
+  background-color: $primary-dark;
+}
+
+button {
+  font-family: $font-stack;
+}
+
+.stage-container {
+  border-bottom: 1px solid $shadow-light;
+}
+
+.stage {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 24rem;
+  min-height: 100vh;
+  padding: 2rem 2rem 8rem 2rem;
+}
+
+.content-box {
+  @extend %box;
+  padding: 1.5rem;
+}
+
+.item-box {
+  @extend %box;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  img {
+    height: 2.5rem;
+    margin-right: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin: 0 0 0.2rem 0;
+  }
+  p {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+}
+
+.item-box:hover {
+  border-color: $secondary;
+}
+
+button {
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: $secondary;
+}
+
+.selected {
+  background-color: $secondary;
+  * {
+    color: $primary-light;
+  }
+}
+
+h1 {
+  margin: auto;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 0.5rem auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+h5 {
+  margin: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: $text-light;
+}
+
+.press {
+  animation-name: press;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+.overflow-hidden {
+  overflow-y: hidden;
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 600px ) and (min-height: 800px) {
+  html {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 1000px) and (max-height: 600px) {
+  .stage {
+    max-width: 32rem;
+  }
+  .popup {
+    max-height: 500px;
+    button {
+      margin-bottom: 0.2rem;
+      width: 16rem;
+      height: 2rem;
+      p {
+        font-size: 1rem;
+      }
+    }
+    p, li {
+      font-size: 0.8rem;
+    }
+  }
+}
